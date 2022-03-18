@@ -1,0 +1,4 @@
+{
+  "greeting": "Olá, {{name}}",
+  "log-out": "Deslogar"
+}
