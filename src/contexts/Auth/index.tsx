@@ -61,6 +61,7 @@ export const AuthContextProvider: React.FC = ({ children }: any) => {
 
     if (queryUserInfo.isError) {
       setUserLogged({ userInfo: undefined, expiresAt: 0 });
+      logOut();
       return;
     }
   }, [queryUserInfo.status]);
