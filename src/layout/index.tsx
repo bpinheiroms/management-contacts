@@ -1,6 +1,6 @@
 import NavBar from '../components/NavBar';
 
-const MainLayout = ({ children }) => {
+const MainLayout = ({ children }: any) => {
   return (
     <>
       <NavBar />
