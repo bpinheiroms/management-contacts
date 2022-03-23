@@ -3,6 +3,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { loginFormSchema } from '../../../shared/validators';
 import Input from '../../Input';
 import { useAuth } from '../../../contexts/Auth/hooks/useAuth';
+import { useTranslation } from 'next-i18next';
+import ErrorMessage from '../../ErrorMessage';
 
 const LoginForm = () => {
   const {
@@ -21,36 +23,47 @@ const LoginForm = () => {
     authenticateUser(data);
   };
 
+  const { t } = useTranslation('common');
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} data-testid="form-sign-in">
-      <div className="min-h-screen flex justify-center items-center bg-white">
-        <div className="p-10 border-[1px] -mt-10 border-slate-200 rounded-md flex flex-col items-center space-y-3">
-          <Input
-            className="p-3 border-[1px] border-slate-500 rounded-sm w-80"
-            type="email"
-            placeholder="E-mail"
-            {...register('email')}
-            error={errors?.email}
-          />
-          <div className="flex flex-col space-y-1">
+      <main className="mx-auto flex min-h-screen w-full items-center justify-center bg-gray-900 text-white">
+        <section className="flex w-[30rem] flex-col space-y-10">
+          <div className="text-center text-4xl font-medium">
+            {t('login-in')}
+          </div>
+
+          <div className="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500">
             <Input
-              className="p-3 border-[1px] border-slate-500 rounded-sm w-80"
+              className="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+              type="email"
+              placeholder="E-mail"
+              {...register('email')}
+              error={errors?.email}
+            />
+          </div>
+
+          <div className="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500">
+            <Input
+              className="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
               type="password"
-              placeholder="Password"
+              placeholder={t('password')}
               {...register('password')}
               error={errors?.password}
             />
           </div>
-          <div className="flex flex-col space-y-5 w-full">
-            <button
-              type="submit"
-              disabled={authenticateMutation.isLoading}
-              className="w-full bg-blue-500 rounded-3xl p-3 text-white font-bold transition duration-200 hover:bg-blue-700">
-              Log in
-            </button>
-          </div>
-        </div>
-      </div>
+
+          <ErrorMessage
+            error={authenticateMutation.error?.response?.data?.message}
+          />
+          <button
+            type="submit"
+            disabled={authenticateMutation.isLoading}
+            className="transform rounded-sm bg-indigo-600 py-2 font-bold duration-300 hover:bg-indigo-400">
+            {t('login-in')}
+          </button>
+        </section>
+      </main>
     </form>
   );
 };

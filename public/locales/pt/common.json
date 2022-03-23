@@ -1,4 +1,7 @@
 {
   "greeting": "Olá, {{name}}",
-  "log-out": "Deslogar"
+  "log-out": "Deslogar",
+  "login-in": "Acessar",
+  "password": "Senha",
+  "error-title": "Erro"
 }
