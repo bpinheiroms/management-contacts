@@ -1,15 +1,10 @@
 import type { GetServerSideProps, NextPage } from 'next';
-import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
-import { useAuth } from '../contexts/Auth/hooks/useAuth';
 import { withSSRPrivate } from '../shared/hoc/withSSRPrivate';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useRouter } from 'next/router';
 import MainLayout from '../layout';
 
 const Home: NextPage = () => {
-  const { t } = useTranslation('common');
-
   return (
     <div>
       <Head>
