@@ -3,5 +3,16 @@
   "log-out": "Deslogar",
   "login-in": "Acessar",
   "password": "Senha",
-  "error-title": "Erro"
+  "error-title": "Erro",
+  "name": "Nome",
+  "e-mail": "E-mail",
+  "save": "Salvar",
+  "cancel": "Cancelar",
+  "edit": "Editar",
+  "company-title": "Pague Leve Contatos",
+  "contact-form-edit": "Edição de Contato",
+  "contact-form-create": "Criação de Contato",
+  "edited-success-message": "Editado com sucesso",
+  "created-success-message": "Cadastrado com sucesso",
+  "deleted-success-message": "Deletado com sucesso"
 }

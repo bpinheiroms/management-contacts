@@ -3,5 +3,17 @@
   "log-out": "Sign out",
   "login-in": "Log In",
   "password": "Password",
-  "error-title": "Error"
+  "error-title": "Error",
+  "name": "Name",
+  "e-mail": "E-mail",
+  "save": "Save",
+  "cancel": "Cancel",
+  "edit": "Edit",
+  "company-title": "Pague Leve Contacts",
+  "contact-form-edit": "Edit Contact",
+  "contact-form-create": "Create Contact",
+  "edited-success-message": "Edited successfully",
+  "created-success-message": "Registered successfully",
+  "deleted-success-message": "Deleted successfully"
+
 }
