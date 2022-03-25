@@ -2,7 +2,7 @@ import NavBar from '../components/NavBar';
 
 const MainLayout = ({ children }: any) => {
   return (
-    <div className="mx-auto min-h-screen w-full  bg-gray-900 text-white">
+    <div className="mx-auto min-h-screen w-full  bg-black text-white">
       <NavBar />
       {children}
     </div>
