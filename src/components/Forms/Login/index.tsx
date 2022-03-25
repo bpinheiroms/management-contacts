@@ -27,43 +27,48 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} data-testid="form-sign-in">
-      <main className="mx-auto flex min-h-screen w-full items-center justify-center bg-gray-900 text-white">
-        <section className="flex w-[30rem] flex-col space-y-10">
-          <div className="text-center text-4xl font-medium">
-            {t('login-in')}
+      <div className="min-h-screen bg-black py-6 flex flex-col justify-center sm:py-12">
+        <div className="relative py-3 sm:max-w-xl sm:mx-auto">
+          <div className="absolute inset-0 bg-gradient-to-r from-indigo-400 to-indigo-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
+          <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
+            <div className="max-w-md mx-auto">
+              <div>
+                <h1 className="text-2xl font-semibold">{t('company-title')}</h1>
+              </div>
+              <div className="divide-y divide-gray-200">
+                <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                  <div className="relative">
+                    <Input
+                      placeholder="E-mail"
+                      {...register('email')}
+                      error={errors?.email}
+                    />
+                  </div>
+                  <div className="relative">
+                    <Input
+                      type="password"
+                      placeholder={t('password')}
+                      {...register('password')}
+                      error={errors?.password}
+                    />
+                  </div>
+                  <div className="relative">
+                    <button
+                      type="submit"
+                      disabled={authenticateMutation.isLoading}
+                      className="bg-indigo-600 text-white rounded-md px-2 py-1 mt-8  hover:bg-indigo-400 text-base">
+                      {t('login-in')}
+                    </button>
+                  </div>
+                  <ErrorMessage
+                    error={authenticateMutation.error?.response?.data?.message}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-
-          <div className="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500">
-            <Input
-              className="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
-              type="email"
-              placeholder="E-mail"
-              {...register('email')}
-              error={errors?.email}
-            />
-          </div>
-
-          <div className="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500">
-            <Input
-              className="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
-              type="password"
-              placeholder={t('password')}
-              {...register('password')}
-              error={errors?.password}
-            />
-          </div>
-
-          <ErrorMessage
-            error={authenticateMutation.error?.response?.data?.message}
-          />
-          <button
-            type="submit"
-            disabled={authenticateMutation.isLoading}
-            className="transform rounded-sm bg-indigo-600 py-2 font-bold duration-300 hover:bg-indigo-400">
-            {t('login-in')}
-          </button>
-        </section>
-      </main>
+        </div>
+      </div>
     </form>
   );
 };
