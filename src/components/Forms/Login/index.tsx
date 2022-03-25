@@ -5,6 +5,7 @@ import Input from '../../Input';
 import { useAuth } from '../../../contexts/Auth/hooks/useAuth';
 import { useTranslation } from 'next-i18next';
 import ErrorMessage from '../../ErrorMessage';
+import SpinnerAnimated from '../../SpinnerAnimated';
 
 const LoginForm = () => {
   const {
@@ -52,17 +53,24 @@ const LoginForm = () => {
                       error={errors?.password}
                     />
                   </div>
-                  <div className="relative">
-                    <button
-                      type="submit"
-                      disabled={authenticateMutation.isLoading}
-                      className="bg-indigo-600 text-white rounded-md px-2 py-1 mt-8  hover:bg-indigo-400 text-base">
-                      {t('login-in')}
-                    </button>
-                  </div>
-                  <ErrorMessage
-                    error={authenticateMutation.error?.response?.data?.message}
-                  />
+                  {authenticateMutation.isLoading ? (
+                    <SpinnerAnimated />
+                  ) : (
+                    <>
+                      <div className="relative">
+                        <button
+                          type="submit"
+                          className="bg-indigo-600 text-white rounded-md px-2 py-1 mt-8  hover:bg-indigo-400 text-base">
+                          {t('login-in')}
+                        </button>
+                      </div>
+                      <ErrorMessage
+                        error={
+                          authenticateMutation.error?.response?.data?.message
+                        }
+                      />
+                    </>
+                  )}
                 </div>
               </div>
             </div>
