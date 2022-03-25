@@ -3,22 +3,18 @@ import ContactForm from '../../components/Forms/Contact';
 import ListContacts from '../../components/ListContacts';
 import Modal from '../../components/Modal';
 import { useModal } from '../../contexts/Modal/hooks/useModal';
-
 const HomeTemplate = () => {
   const { isOpenModal } = useModal();
 
   return (
     <>
-      {isOpenModal ? (
+      {isOpenModal && (
         <Modal>
           <ContactForm />
         </Modal>
-      ) : (
-        <>
-          <ListContacts />
-          <FloatingButton />
-        </>
       )}
+      <ListContacts />
+      <FloatingButton />
     </>
   );
 };

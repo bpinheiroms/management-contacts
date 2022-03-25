@@ -4,12 +4,14 @@ import { useModal } from '../../contexts/Modal/hooks/useModal';
 import { useDeleteContact } from '../../services/useDeleteContact';
 import { notifyMessage } from '../../shared/lib/notification';
 import { IContact } from '../../shared/types';
+import { motion } from 'framer-motion';
 
 interface IProps {
   data: IContact;
+  index: number;
 }
 
-const ContactItem: React.FC<IProps> = ({ data }) => {
+const ContactItem: React.FC<IProps> = ({ data, index }) => {
   const { t } = useTranslation('common');
 
   const { changeDataModal, toggleModal } = useModal();
@@ -38,9 +40,18 @@ const ContactItem: React.FC<IProps> = ({ data }) => {
   }, [deleteMutation.status]);
 
   return (
-    <div className="flex items-center justify-center flex-col bg-gray-700 p-4 rounded-lg w-48 space-y-4">
+    <motion.div
+      whileHover={{ scale: 1.1 }}
+      initial={{
+        opacity: 0,
+        translateX: index % 2 === 0 ? -50 : 50,
+        translateY: -50,
+      }}
+      animate={{ opacity: 1, translateX: 0, translateY: 0 }}
+      transition={{ duration: 0.3, delay: index * 0.2 }}
+      className="flex items-center justify-center flex-col bg-gray-700 p-4 rounded-lg w-48 space-y-4">
       <div className="flex items-center justify-center rounded-full border-gray-100 bg-gray-800 shadow-sm w-20 h-20 text-gray-300">
-        <p>{data?.name.slice(0,2)}</p>
+        <p>{data?.name.slice(0, 2)}</p>
       </div>
       <h1 className="text-gray-50 font-semibold">{data.name}</h1>
 
@@ -68,7 +79,7 @@ const ContactItem: React.FC<IProps> = ({ data }) => {
           </svg>
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

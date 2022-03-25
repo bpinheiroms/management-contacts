@@ -21,8 +21,8 @@ const ListContacts = () => {
                 <EmptyData />
               ) : (
                 <>
-                  {queryContacts.data.map((data: IContact) => (
-                    <ContactItem key={data.id} data={data} />
+                  {queryContacts.data.map((data: IContact, index: number) => (
+                    <ContactItem key={data.id} data={data} index={index} />
                   ))}
                 </>
               )}
