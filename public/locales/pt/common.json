@@ -14,5 +14,6 @@
   "contact-form-create": "Criação de Contato",
   "edited-success-message": "Editado com sucesso",
   "created-success-message": "Cadastrado com sucesso",
-  "deleted-success-message": "Deletado com sucesso"
+  "deleted-success-message": "Deletado com sucesso",
+  "empty-data": "Clique no botão abaixo para adicionar um contato :)"
 }
