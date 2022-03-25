@@ -9,3 +9,9 @@ export interface AuthState {
   expiresAt: number;
   userInfo?: UserInfo;
 }
+
+export interface IContact {
+  name: string;
+  email: string;
+  id: string;
+}
