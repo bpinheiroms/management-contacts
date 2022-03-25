@@ -17,7 +17,7 @@ handler.post(async (req: any, res: NextApiResponse) => {
         name,
         user: {
           connect: {
-            id: req.sub,
+            id: req.user.sub,
           },
         },
       },

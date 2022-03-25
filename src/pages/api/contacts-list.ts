@@ -11,13 +11,13 @@ handler.get(async (req: any, res: NextApiResponse) => {
   try {
     const contacts = await prisma.contacts.findMany({
       where: {
-        userId: req.sub,
+        userId: req.user.sub,
       },
     });
 
     res.json(contacts);
   } catch (err) {
-    res.status(401).json({ message: 'Not authorized' });
+    res.status(404).json({ message: 'Not found' });
   }
 });
 
