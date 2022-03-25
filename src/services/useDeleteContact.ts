@@ -1,7 +1,7 @@
 import { Users } from '@prisma/client';
 import { useMutation, UseMutationResult, useQueryClient } from 'react-query';
 import { httpApi } from '../shared/lib/http';
-import { GET_USERS_QUERY } from './useListContacts';
+import { GET_CONTACTS_QUERY } from './useListContacts';
 
 export const REMOVE_CONTACT_KEY = 'REMOVE_CONTACT_KEY';
 
@@ -16,7 +16,7 @@ export function useDeleteContact(): UseMutationResult<any, CustomError> {
   return useMutation<any, CustomError, any>((data: any) => query(data), {
     mutationKey: REMOVE_CONTACT_KEY,
     onSuccess: () => {
-      queryClient.refetchQueries(GET_USERS_QUERY);
+      queryClient.refetchQueries(GET_CONTACTS_QUERY);
     },
   });
 }

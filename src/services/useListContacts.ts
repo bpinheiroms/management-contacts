@@ -2,7 +2,7 @@ import { useQuery } from 'react-query';
 import { httpApi } from '../shared/lib/http';
 import { IContact } from '../shared/types';
 
-export const GET_USERS_QUERY = 'get-users-key';
+export const GET_CONTACTS_QUERY = 'get-contacts-key';
 
 const query = async (): Promise<any> => {
   const { data } = await httpApi.get(`/contacts-list`);
@@ -10,5 +10,5 @@ const query = async (): Promise<any> => {
 };
 
 export function useListContacts() {
-  return useQuery<IContact[], CustomError>([GET_USERS_QUERY], () => query());
+  return useQuery<IContact[], CustomError>([GET_CONTACTS_QUERY], () => query());
 }
