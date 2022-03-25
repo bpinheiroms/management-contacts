@@ -2,7 +2,7 @@ const Modal = ({ children }: any) => {
   return (
     <>
       <div
-        className="py-12 bg-gray-700 transition duration-150 ease-in-out z-10 absolute top-0 right-0 bottom-0 left-0"
+        className="py-12 bg-black bg-opacity-80 transition duration-150 ease-in-out z-10 absolute top-0 right-0 bottom-0 left-0 "
         id="modal">
         <div
           role="alert"
