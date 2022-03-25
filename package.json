@@ -13,6 +13,7 @@
     "@headlessui/react": "^1.5.0",
     "@heroicons/react": "^1.0.6",
     "@prisma/client": "^3.10.0",
+    "@testing-library/react-hooks": "^7.0.2",
     "axios": "^0.26.0",
     "bcryptjs": "^2.4.3",
     "cookie": "^0.4.2",
