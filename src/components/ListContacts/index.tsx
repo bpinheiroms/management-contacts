@@ -1,6 +1,7 @@
 import { useListContacts } from '../../services/useListContacts';
 import { IContact } from '../../shared/types';
 import ContactItem from '../ContactItem';
+import EmptyData from '../EmptyData';
 import SpinnerAnimated from '../SpinnerAnimated';
 
 const ListContacts = () => {
@@ -16,9 +17,15 @@ const ListContacts = () => {
         <div className="flex flex-row flex-wrap gap-5 mt-8">
           {queryContacts.isSuccess && (
             <>
-              {queryContacts.data.map((data: IContact) => (
-                <ContactItem key={data.id} data={data} />
-              ))}
+              {queryContacts.data.length === 0 ? (
+                <EmptyData />
+              ) : (
+                <>
+                  {queryContacts.data.map((data: IContact) => (
+                    <ContactItem key={data.id} data={data} />
+                  ))}
+                </>
+              )}
             </>
           )}
         </div>
