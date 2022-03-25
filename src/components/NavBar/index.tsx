@@ -15,15 +15,15 @@ const NavBar = () => {
           <div className="relative flex items-center justify-between h-16">
             <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start"></div>
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              <p className="text-gray-300">{t('greeting', { name: userLogged?.userInfo?.name })}</p>
+              <p className="text-gray-300">
+                {t('greeting', { name: userLogged?.userInfo?.name })}
+              </p>
               <Menu as="div" className="ml-3 relative">
                 <div>
                   <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                    <img
-                      className="h-10 w-10 rounded-full"
-                      src="https://media-exp1.licdn.com/dms/image/C4D03AQEQ5Sqxz_2_ew/profile-displayphoto-shrink_200_200/0/1604945187613?e=1652918400&v=beta&t=fuUa8hMvR6OOhcv-8u8mL4Ao7cda6T1R8TsLb-xho6s"
-                      alt=""
-                    />
+                    <div className="flex items-center justify-center rounded-full w-10 h-10 ">
+                      <p>{userLogged?.userInfo?.name.slice(0, 2)}</p>
+                    </div>
                   </Menu.Button>
                 </div>
                 <Transition

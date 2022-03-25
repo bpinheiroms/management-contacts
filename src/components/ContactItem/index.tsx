@@ -39,22 +39,20 @@ const ContactItem: React.FC<IProps> = ({ data }) => {
 
   return (
     <div className="flex items-center justify-center flex-col bg-gray-700 p-4 rounded-lg w-48 space-y-4">
-      <img
-        className="rounded-full border-gray-100 shadow-sm w-20 h-20"
-        src="https://media-exp1.licdn.com/dms/image/C4D03AQEQ5Sqxz_2_ew/profile-displayphoto-shrink_200_200/0/1604945187613?e=1652918400&v=beta&t=fuUa8hMvR6OOhcv-8u8mL4Ao7cda6T1R8TsLb-xho6s"
-        alt="user image"
-      />
+      <div className="flex items-center justify-center rounded-full border-gray-100 bg-gray-800 shadow-sm w-20 h-20 text-gray-300">
+        <p>{data?.name.slice(0,2)}</p>
+      </div>
       <h1 className="text-gray-50 font-semibold">{data.name}</h1>
 
       <div className="flex space-x-2">
         <button
           onClick={onClick}
-          className="px-6 py-1  border-2 border-indigo-600 bg-indigo-600 rounded-full text-gray-50 font-semibold">
+          className="px-4 py-1  border-2 border-indigo-600 bg-indigo-600 rounded-full text-gray-50 font-semibold">
           {t('edit')}
         </button>
         <button
           onClick={onRemove}
-          className="px-6 py-1  border-2 border-red-600 bg-red-500 rounded-full text-gray-50 font-semibold">
+          className="px-6 py-1 border-2 border-red-600 bg-red-500 rounded-full text-gray-50 font-semibold">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-4 w-4"
